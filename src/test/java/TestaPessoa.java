@@ -28,7 +28,6 @@ public class TestaPessoa {
         Documento d = new Documento("22222222220", t, rg);
         Endereco e = new Endereco("Rua", "H27D", "123", "", "Campus do CTA", "São José dos Campos", "São Paulo", "Brasil", "12228640");
         
-        
         Pessoa p = new Pessoa();
         
         p.setNome("Juca");
