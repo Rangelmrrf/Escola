@@ -34,7 +34,7 @@ public class TestaPessoa {
         p.setEmail("juca@gmail.com");
         p.setDataNascimento("20/12/1990");
         p.setDocumento(d);
-        p.setEndereco(e);
+
         
         
         System.out.println(p);

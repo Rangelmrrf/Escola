@@ -5,11 +5,16 @@
  */
 package rangelmrrf.escola.model;
 
+import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
 /**
@@ -18,7 +23,7 @@ import javax.persistence.Transient;
  */
 
 @MappedSuperclass
-public class Pessoa {
+public class Pessoa implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,12 +32,14 @@ public class Pessoa {
     private String nome;
     private String email;
     private String dataNascimento;
-    @Transient
+     
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "documento_id")
     private Documento documento;
-    @Transient
-    private Endereco endereco;
-
     
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "endereco_id")
+    private Endereco endereco;
 
     public int getId() {
         return id;
@@ -72,14 +79,6 @@ public class Pessoa {
 
     public void setDocumento(Documento documento) {
         this.documento = documento;
-    }
-    
-    public Endereco getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
     }
     
     public Pessoa() {
@@ -122,13 +121,17 @@ public class Pessoa {
         return true;
     }
 
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
     @Override
     public String toString() {
         return "Pessoa{" + "id=" + id + ", nome=" + nome + ", email=" + email + ", dataNascimento=" + dataNascimento + ", documento=" + documento + ", endereco=" + endereco + '}';
     }
-
-    
-
-    
 
 }

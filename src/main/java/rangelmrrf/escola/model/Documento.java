@@ -6,16 +6,41 @@
 
 package rangelmrrf.escola.model;
 
+import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  *
  * @author fp01ajweb8
  */
-public class Documento {
+@Entity
+@Table
+
+public class Documento implements Serializable{
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     
     private String cpf;
+    @Embedded
     private Titulo titulo;
+    @Embedded
     private Rg rg;
 
     public String getCpf() {

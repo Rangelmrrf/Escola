@@ -6,13 +6,18 @@
 
 package rangelmrrf.escola.model;
 
+import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 /**
  *
  * @author fp01ajweb8
  */
-public class Funcionario extends Pessoa{
+@Entity
+@Table
+public class Funcionario extends Pessoa implements Serializable{
     
     private String cargo;
 
@@ -53,6 +58,11 @@ public class Funcionario extends Pessoa{
             return false;
         }
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Funcionario{" + "cargo=" + cargo + super.getDocumento() + super.getEndereco()+'}';
     }
     
     

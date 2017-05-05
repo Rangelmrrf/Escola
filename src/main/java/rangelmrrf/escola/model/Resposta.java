@@ -6,16 +6,32 @@
 
 package rangelmrrf.escola.model;
 
+import java.io.Serializable;
 import java.util.Objects;
+import javax.annotation.Generated;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /**
  *
  * @author fp01ajweb8
  */
-public class Resposta {
-    
+@Entity
+@Table
+public class Resposta implements Serializable{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String opcao;
     private Boolean certo;
+    @ManyToOne
+    @JoinColumn(name = "questao_id")
     private Questao questao;
 
     public String getOpcao() {
@@ -79,7 +95,7 @@ public class Resposta {
 
     @Override
     public String toString() {
-        return "Resposta{" + "opcao=" + opcao + ", certo=" + certo + ", questao=" + questao + '}';
+        return "Resposta{" + "opcao=" + opcao + ", certo=" + certo + '}';
     }
     
     

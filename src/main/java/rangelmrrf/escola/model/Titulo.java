@@ -5,13 +5,16 @@
  */
 package rangelmrrf.escola.model;
 
+import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.Embeddable;
 
 /**
  *
  * @author fp01ajweb8
  */
-public class Titulo {
+@Embeddable
+public class Titulo implements Serializable{
 
     private String numero;
     private String secao;

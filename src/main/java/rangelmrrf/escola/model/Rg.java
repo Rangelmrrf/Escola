@@ -5,20 +5,23 @@
  */
 package rangelmrrf.escola.model;
 
+import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.Embeddable;
 
 /**
  *
  * @author fp01ajweb8
  */
-public class Rg {
+@Embeddable
+public class Rg implements Serializable{
 
-    private String numero;
+    private String numeroRg;
     private String dataEmissao;
     private String emissor;
 
     public Rg(String numero, String dataEmissao, String emissor) {
-        this.numero = numero;
+        this.numeroRg = numero;
         this.dataEmissao = dataEmissao;
         this.emissor = emissor;
     }
@@ -26,12 +29,12 @@ public class Rg {
     public Rg() {
     }
 
-    public String getNumero() {
-        return numero;
+    public String getNumeroRg() {
+        return numeroRg;
     }
 
-    public void setNumero(String numero) {
-        this.numero = numero;
+    public void setNumeroRg(String numeroRg) {
+        this.numeroRg = numeroRg;
     }
 
     public String getDataEmissao() {
@@ -65,7 +68,7 @@ public class Rg {
             return false;
         }
         final Rg other = (Rg) obj;
-        if (!Objects.equals(this.numero, other.numero)) {
+        if (!Objects.equals(this.numeroRg, other.numeroRg)) {
             return false;
         }
         return true;
@@ -73,7 +76,7 @@ public class Rg {
 
     @Override
     public String toString() {
-        return "Rg{" + "numero=" + numero + ", dataEmissao=" + dataEmissao + ", emissor=" + emissor + '}';
+        return "Rg{" + "numero=" + numeroRg + ", dataEmissao=" + dataEmissao + ", emissor=" + emissor + '}';
     }
 
 }

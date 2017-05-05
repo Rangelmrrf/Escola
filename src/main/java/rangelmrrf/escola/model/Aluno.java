@@ -62,8 +62,10 @@ public class Aluno extends Pessoa implements Serializable{
 
     @Override
     public String toString() {
-        return "Aluno{" + "registroAluno=" + registroAluno + '}';
+        return "Aluno{" + "registroAluno=" + registroAluno + '}'  + super.getDocumento() +  super.getEndereco();
     }
+
+
 
     
     

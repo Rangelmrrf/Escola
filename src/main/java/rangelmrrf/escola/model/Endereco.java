@@ -1,6 +1,16 @@
 package rangelmrrf.escola.model;
 
+import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -12,8 +22,14 @@ import java.util.Objects;
  *
  * @author fp01ajweb8
  */
-public class Endereco {
+
+@Entity
+@Table
+public class Endereco implements Serializable{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     
+    private int id;
     private String tipo;
     private String logradouro;
     private String numero;
@@ -96,6 +112,15 @@ public class Endereco {
         this.cep = cep;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+
     public Endereco() {
     }
 
@@ -135,9 +160,7 @@ public class Endereco {
 
     @Override
     public String toString() {
-        return "Endereco{" + "tipo=" + tipo + ", logradouro=" + logradouro + ", numero=" + numero + ", complemento=" + complemento + ", bairro=" + bairro + ", cidade=" + cidade + ", estado=" + estado + ", pais=" + pais + ", cep=" + cep + '}';
+        return "Endereco{" + "id=" + id + ", tipo=" + tipo + ", logradouro=" + logradouro + ", numero=" + numero + ", complemento=" + complemento + ", bairro=" + bairro + ", cidade=" + cidade + ", estado=" + estado + ", pais=" + pais + ", cep=" + cep + '}';
     }
-    
-            
-    
+
 }

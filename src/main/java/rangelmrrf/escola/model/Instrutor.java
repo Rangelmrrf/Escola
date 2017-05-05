@@ -6,11 +6,18 @@
 
 package rangelmrrf.escola.model;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 /**
  *
  * @author fp01ajweb8
  */
-public class Instrutor extends Pessoa{
+
+@Entity
+@Table
+public class Instrutor extends Pessoa implements Serializable{
 
     public Instrutor() {
     }
