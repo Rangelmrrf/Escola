@@ -9,6 +9,7 @@ package rangelmrrf.escola.model;
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -20,6 +21,16 @@ import javax.persistence.Table;
 public class Aluno extends Pessoa implements Serializable{
     
     private String registroAluno;
+    @ManyToOne
+    private Turma turma;
+
+    public Turma getTurma() {
+        return turma;
+    }
+
+    public void setTurma(Turma turma) {
+        this.turma = turma;
+    }
     
 
     public String getRegistroAluno() {

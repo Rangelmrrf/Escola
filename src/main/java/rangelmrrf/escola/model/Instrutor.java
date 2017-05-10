@@ -28,7 +28,7 @@ public class Instrutor extends Pessoa implements Serializable{
 
     @Override
     public String toString() {
-        return "Instrutor{" + '}';
+        return "Instrutor{" + super.toString()+ '}';
     }
     
     

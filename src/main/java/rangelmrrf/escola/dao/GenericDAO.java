@@ -21,9 +21,9 @@ public class GenericDAO<T> {
     
     private Class<T> clazz;
 
-    public GenericDAO() {
+    public GenericDAO(Class<T> clazz) {
          factory = Persistence.createEntityManagerFactory("escola");
-         
+         this.clazz = clazz;
     }
     
     public T salvar(T a) {

@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.junit.Test;
 import rangelmrrf.escola.dao.AlunoDAO;
+import rangelmrrf.escola.dao.InstrutorDAO;
 import rangelmrrf.escola.dao.TurmaDAO;
 import rangelmrrf.escola.model.Aluno;
 import rangelmrrf.escola.model.Turma;
@@ -41,6 +42,8 @@ public class TestaTurma {
         alunos.add(b);
         alunos.add(a);
         t.setAlunos(alunos);
+        InstrutorDAO instrutorDao = new InstrutorDAO();
+        t.setInstrutor(instrutorDao.buscar(1));
         TurmaDAO dao = new TurmaDAO();
         dao.salvar(t);
 

@@ -6,16 +6,16 @@
 
 package rangelmrrf.escola.dao;
 
-import rangelmrrf.escola.model.Turma;
+import rangelmrrf.escola.model.Materia;
 
 /**
  *
  * @author fp01ajweb8
  */
-public class TurmaDAO extends GenericDAO<Turma>{
+public class MateriaDAO extends GenericDAO<Materia>{
 
-    public TurmaDAO() {
-        super(Turma.class);
+    public MateriaDAO() {
+        super(Materia.class);
     }
     
 }

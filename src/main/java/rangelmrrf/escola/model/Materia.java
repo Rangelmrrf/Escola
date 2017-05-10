@@ -6,77 +6,39 @@
 
 package rangelmrrf.escola.model;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  *
  * @author fp01ajweb8
  */
-public class Materia {
+@Entity
+@Table
+public class Materia implements Serializable{
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
+    
+    private Integer id;
     private String nome;
-    private String conteudo;
     private String cargaHoraria;
-    private Instrutor instrutor;
-    private List<Questao> questoes;
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getConteudo() {
-        return conteudo;
-    }
-
-    public void setConteudo(String conteudo) {
-        this.conteudo = conteudo;
-    }
-
-    public String getCargaHoraria() {
-        return cargaHoraria;
-    }
-
-    public void setCargaHoraria(String cargaHoraria) {
-        this.cargaHoraria = cargaHoraria;
-    }
-
-    public Instrutor getInstrutor() {
-        return instrutor;
-    }
-
-    public void setInstrutor(Instrutor instrutor) {
-        this.instrutor = instrutor;
-    }
-
-    public List<Questao> getQuestoes() {
-        return questoes;
-    }
-
-    public void setQuestoes(List<Questao> questoes) {
-        this.questoes = questoes;
-    }
-
-    public Materia() {
-    }
-
-    public Materia(String nome, String conteudo, String cargaHoraria, Instrutor instrutor, List<Questao> questoes) {
-        this.nome = nome;
-        this.conteudo = conteudo;
-        this.cargaHoraria = cargaHoraria;
-        this.instrutor = instrutor;
-        this.questoes = questoes;
-    }
+    @OneToMany(mappedBy = "materia")
+    private List<Aula> aulas;
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 89 * hash + Objects.hashCode(this.nome);
-        hash = 89 * hash + Objects.hashCode(this.conteudo);
+        hash = 97 * hash + Objects.hashCode(this.nome);
+        hash = 97 * hash + Objects.hashCode(this.cargaHoraria);
         return hash;
     }
 
@@ -92,17 +54,61 @@ public class Materia {
         if (!Objects.equals(this.nome, other.nome)) {
             return false;
         }
-        if (!Objects.equals(this.conteudo, other.conteudo)) {
+        if (!Objects.equals(this.cargaHoraria, other.cargaHoraria)) {
             return false;
         }
         return true;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCargaHoraria() {
+        return cargaHoraria;
+    }
+
+    public void setCargaHoraria(String cargaHoraria) {
+        this.cargaHoraria = cargaHoraria;
+    }
+
+      public List<Aula> getAulas() {
+        return aulas;
+    }
+
+    public void setAulas(List<Aula> aulas) {
+        this.aulas = aulas;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Materia() {
+    }
+
+    public Materia(String nome, String cargaHoraria, List<Aula> aulas) {
+        this.nome = nome;
+        this.cargaHoraria = cargaHoraria;
+        this.aulas = aulas;
+    }
+
     @Override
     public String toString() {
-        return "Materia{" + "nome=" + nome + ", conteudo=" + conteudo + ", cargaHoraria=" + cargaHoraria + ", instrutor=" + instrutor + ", questoes=" + questoes + '}';
+        return "Materia{" + "id=" + id + ", nome=" + nome + ", cargaHoraria=" + cargaHoraria + ", aulas=" + aulas + '}';
     }
-    
-    
-    
+
+    public void getCargaHoraria(String _horas) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+   
 }

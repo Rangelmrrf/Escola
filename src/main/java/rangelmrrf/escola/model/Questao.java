@@ -14,6 +14,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -31,7 +32,7 @@ public class Questao implements Serializable{
     private String pergunta;
     @OneToMany(mappedBy = "questao",cascade = CascadeType.ALL)
     private List<Resposta> respostas;
-    @Transient
+    @ManyToOne
     private Aula aula;
 
     public Questao() {
@@ -97,7 +98,7 @@ public class Questao implements Serializable{
 
     @Override
     public String toString() {
-        return "Questao{" + "id=" + id + ", pergunta=" + pergunta + ", respostas=" + respostas + ", aula=" + aula + '}';
+        return "Questao{" + "id=" + id + ", pergunta=" + pergunta + ", respostas=" + respostas + '}';
     }
     
 }

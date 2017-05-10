@@ -6,18 +6,58 @@
 
 package rangelmrrf.escola.model;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  *
  * @author fp01ajweb8
  */
-public class Turma {
+@Entity
+@Table
+public class Turma implements Serializable{
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
+    private Integer id;
     
     private String nome;
+    @Enumerated(EnumType.STRING)
     private Turno turno;
+    @OneToMany(mappedBy = "turma", cascade = {CascadeType.MERGE})
     private List<Aluno> alunos;
+    @ManyToOne
+    @JoinColumn(name = "instrutor_id")
+    private Instrutor instrutor;
+
+    public Instrutor getInstrutor() {
+        return instrutor;
+    }
+
+    public void setInstrutor(Instrutor instrutor) {
+        this.instrutor = instrutor;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;
@@ -78,9 +118,11 @@ public class Turma {
         return true;
     }
 
+
+
     @Override
     public String toString() {
-        return "Turma{" + "nome=" + nome + ", turno=" + turno + ", alunos=" + alunos + '}';
+        return "Turma{" + "id=" + id + ", nome=" + nome + ", turno=" + turno + ", alunos=" + alunos +", Instrutor="+instrutor+  '}';
     }
     
     
