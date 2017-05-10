@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    
+    
+    <ui:composition template="/WEB-INF/templates/default.xhtml">
+        
+        <ui:define name="titulo">Formulário de Aluno</ui:define>
+        
+        <ui:define name="corpo">
+            
+            <h:form prependId="false">
+                
+                <h:panelGrid columns="3" >
+                    
+                    <f:facet name="header">
+                        <h:outputText value="Cadastro de Aluno" />
+                    </f:facet>
+                    
+                    <p:outputLabel for="id" value="ID" />
+                    <p:inputText id="id" size="4" value="#{alunoMB.aluno.id}" disabled="true"/>
+                    <p:message for="id"/> 
+                    
+                    <p:outputLabel for="nome" value="Nome" />
+                    <p:inputText id="nome" size="100" value="#{alunoMB.aluno.nome}" />
+                    <p:message for="nome"/> 
+                    
+                    <p:outputLabel for="email" value="E-mail" />
+                    <p:inputText id="email" size="100" value="#{alunoMB.aluno.email}" />
+                    <p:message for="email"/>
+                    
+                    <p:outputLabel for="data" value="Data Nascimento" />
+                    <p:inputText id="data" size="10" value="#{alunoMB.aluno.dataNascimento}" />
+                    <p:message for="data"/>
+                    
+                    <p:outputLabel for="reg" value="Registro do Aluno" />
+                    <p:inputText id="reg" size="5" value="#{alunoMB.aluno.registroAluno}" disabled="true"/>
+                    <p:message for="reg"/> 
+                    
+                    <p:outputLabel for="cpf" value="CPF" />
+                    <p:inputText id="cpf" size="10" value="#{alunoMB.documento.cpf}" />
+                    <p:message for="cpf"/>
+                    <p:fieldset legend="RG">
+                        <p:outputLabel for="rgNumero" value="Numero do RG" />
+                        <p:inputText id="rgNumero" size="5" value="#{alunoMB.documento.rg.numeroRg}" />
+                        <p:message for="rgNumero"/>
+                    </p:fieldset>
+                    
+                </h:panelGrid>
+                
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>

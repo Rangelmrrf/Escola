@@ -5,11 +5,9 @@
  */
 package rangelmrrf.escola.dao;
 
-import com.sun.org.apache.xerces.internal.impl.xs.util.XSNamedMapImpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import rangelmrrf.escola.model.Aula;
-import rangelmrrf.escola.model.Materia;
 import rangelmrrf.escola.model.Questao;
 
 /**
