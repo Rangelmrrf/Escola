@@ -5,53 +5,74 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
-    
-    
+
+
     <ui:composition template="/WEB-INF/templates/default.xhtml">
-        
+
         <ui:define name="titulo">Formulário de Aluno</ui:define>
-        
+
         <ui:define name="corpo">
-            
+
             <h:form prependId="false">
-                
-                <h:panelGrid columns="3" >
-                    
+
+                <h:panelGrid columns="3" cellpadding="10">
+
                     <f:facet name="header">
                         <h:outputText value="Cadastro de Aluno" />
                     </f:facet>
-                    
-                    <p:outputLabel for="id" value="ID" />
-                    <p:inputText id="id" size="4" value="#{alunoMB.aluno.id}" disabled="true"/>
-                    <p:message for="id"/> 
-                    
-                    <p:outputLabel for="nome" value="Nome" />
-                    <p:inputText id="nome" size="100" value="#{alunoMB.aluno.nome}" />
-                    <p:message for="nome"/> 
-                    
-                    <p:outputLabel for="email" value="E-mail" />
-                    <p:inputText id="email" size="100" value="#{alunoMB.aluno.email}" />
-                    <p:message for="email"/>
-                    
-                    <p:outputLabel for="data" value="Data Nascimento" />
-                    <p:inputText id="data" size="10" value="#{alunoMB.aluno.dataNascimento}" />
-                    <p:message for="data"/>
-                    
-                    <p:outputLabel for="reg" value="Registro do Aluno" />
-                    <p:inputText id="reg" size="5" value="#{alunoMB.aluno.registroAluno}" disabled="true"/>
-                    <p:message for="reg"/> 
-                    
-                    <p:outputLabel for="cpf" value="CPF" />
-                    <p:inputText id="cpf" size="10" value="#{alunoMB.documento.cpf}" />
-                    <p:message for="cpf"/>
-                    <p:fieldset legend="RG">
-                        <p:outputLabel for="rgNumero" value="Numero do RG" />
-                        <p:inputText id="rgNumero" size="5" value="#{alunoMB.documento.rg.numeroRg}" />
-                        <p:message for="rgNumero"/>
+                    <p:fieldset legend="Cadastro de Aluno">
+                        <h:panelGrid columns="3" cellpadding="10">
+                            <p:outputLabel for="id" value="ID" />
+                            <p:inputText id="id" size="4" value="#{alunoMB.aluno.id}" disabled="true"/>
+                            <p:message for="id"/> 
+                        </h:panelGrid>
+                        <h:panelGrid columns="3" cellpadding="10">
+                            <p:outputLabel for="nome" value="Nome" />
+                            <p:inputText id="nome" size="100" value="#{alunoMB.aluno.nome}" />
+                            <p:message for="nome"/> 
+                        </h:panelGrid>
+                        <h:panelGrid columns="3" cellpadding="10">
+                            <p:outputLabel for="email" value="E-mail" />
+                            <p:inputText id="email" size="100" value="#{alunoMB.aluno.email}" />
+                            <p:message for="email"/>
+                        </h:panelGrid>
+                        <h:panelGrid columns="3" cellpadding="10">
+                            <p:outputLabel for="data" value="Data Nascimento" />
+                            <p:inputMask id="data" size="10" value="#{alunoMB.aluno.dataNascimento}" mask="99/99/9999"/>
+                            <p:message for="data"/>
+                        </h:panelGrid>
+                        <h:panelGrid columns="3" cellpadding="10">
+                            <p:outputLabel for="reg" value="Registro do Aluno" />
+                            <p:inputText id="reg" size="5" value="#{alunoMB.aluno.registroAluno}" disabled="true"/>
+                            <p:message for="reg"/> 
+                        </h:panelGrid>
+                        <h:panelGrid columns="3" cellpadding="10">
+                            <p:outputLabel for="cpf" value="CPF" />
+                            <p:inputText id="cpf" size="10" value="#{alunoMB.documento.cpf}" />
+                            <p:message for="cpf"/>
+                        </h:panelGrid>
+                        <p:fieldset legend="RG">
+                            <h:panelGrid columns="3" cellpadding="10">
+                                <h:panelGrid columns="3" cellpadding="10">
+                                    <p:outputLabel for="rgNumero" value="Numero do RG" />
+                                    <p:inputText id="rgNumero" size="10" value="#{alunoMB.documento.rg.numeroRg}" />
+                                    <p:message for="rgNumero"/>
+                                </h:panelGrid>
+                                <h:panelGrid columns="3" cellpadding="10">
+                                    <p:outputLabel for="rgEmissor" value="Orgão Emissor" />
+                                    <p:inputText id="rgEmissor" size="10" value="#{alunoMB.documento.rg.emissor}" />
+                                    <p:message for="rgEmissor"/>
+                                </h:panelGrid>
+                                <h:panelGrid columns="3" cellpadding="10">
+                                    <p:outputLabel for="rgData" value="Data de Emissão" />
+                                    <p:inputMask id="rgData" size="10" value="#{alunoMB.documento.rg.dataEmissao}" mask="99/99/9999"/>
+                                    <p:message for="rgData"/>
+                                </h:panelGrid>
+                            </h:panelGrid>
+                        </p:fieldset>
                     </p:fieldset>
-                    
                 </h:panelGrid>
-                
+
             </h:form>
         </ui:define>
     </ui:composition>

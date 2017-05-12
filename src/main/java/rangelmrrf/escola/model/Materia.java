@@ -15,6 +15,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  *
@@ -33,6 +34,8 @@ public class Materia implements Serializable{
     private String cargaHoraria;
     @OneToMany(mappedBy = "materia")
     private List<Aula> aulas;
+    @Transient
+    private Curso curso;
 
     @Override
     public int hashCode() {
