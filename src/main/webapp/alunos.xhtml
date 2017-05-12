@@ -70,6 +70,25 @@
                                 </h:panelGrid>
                             </h:panelGrid>
                         </p:fieldset>
+                         <p:fieldset legend="Título de Eleitor">
+                            <h:panelGrid columns="3" cellpadding="10">
+                                <h:panelGrid columns="3" cellpadding="10">
+                                    <p:outputLabel for="tituloNumero" value="Número de Título" />
+                                    <p:inputText id="tituloNumero" size="10" value="#{alunoMB.documento.titulo.numero}" />
+                                    <p:message for="tituloNumero"/>
+                                </h:panelGrid>
+                                <h:panelGrid columns="3" cellpadding="10">
+                                    <p:outputLabel for="tituloZona" value="Zona" />
+                                    <p:inputText id="tituloZona" size="10" value="#{alunoMB.documento.titulo.zona}" />
+                                    <p:message for="tituloZona"/>
+                                </h:panelGrid>
+                                <h:panelGrid columns="3" cellpadding="10">
+                                    <p:outputLabel for="titulosecao" value="Seção" />
+                                    <p:inputText id="titulosecao" size="10" value="#{alunoMB.documento.titulo.secao}"/>
+                                    <p:message for="titulosecao"/>
+                                </h:panelGrid>
+                            </h:panelGrid>
+                        </p:fieldset>
                     </p:fieldset>
                 </h:panelGrid>
 
