@@ -9,10 +9,13 @@ package rangelmrrf.escola.model;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.CollectionTable;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -36,6 +39,13 @@ public class Materia implements Serializable{
     private List<Aula> aulas;
     @Transient
     private Curso curso;
+    
+    @ElementCollection
+    @CollectionTable(
+          name="MATERIA_INSTRUTOR",
+          joinColumns=@JoinColumn(name="MATERIA_ID")
+  )
+    private List<MateriaInstrutor> materiaInstrutores;
 
     @Override
     public int hashCode() {
@@ -95,6 +105,22 @@ public class Materia implements Serializable{
         this.id = id;
     }
 
+    public Curso getCurso() {
+        return curso;
+    }
+
+    public void setCurso(Curso curso) {
+        this.curso = curso;
+    }
+
+    public List<MateriaInstrutor> getMateriaInstrutores() {
+        return materiaInstrutores;
+    }
+
+    public void setMateriaInstrutores(List<MateriaInstrutor> materiaInstrutores) {
+        this.materiaInstrutores = materiaInstrutores;
+    }
+
     public Materia() {
     }
 
@@ -106,7 +132,7 @@ public class Materia implements Serializable{
 
     @Override
     public String toString() {
-        return "Materia{" + "id=" + id + ", nome=" + nome + ", cargaHoraria=" + cargaHoraria + ", aulas=" + aulas + '}';
+        return "Materia{" + "id=" + id + ", nome=" + nome + ", cargaHoraria=" + cargaHoraria + ", aulas=" + aulas + ", materia instrutores="+ materiaInstrutores+'}';
     }
 
     public void getCargaHoraria(String _horas) {
